@@ -1,0 +1,35 @@
+							SPRINT - 1
+
+						Code for safety aLARM
+
+int LED = A1;
+int buzz = 3;
+const int gas = 0;
+int MQ2pin = A0;
+
+
+void setup() {
+  Serial.begin(9600);
+}
+
+void loop() {
+  float sensorValue,MQ2pin;
+sensorValue = analogRead(MQ2pin); // read analog input pin 0
+
+  if(sensorValue >= 470){
+    digitalWrite(LED,HIGH);
+    digitalWrite(buzz,HIGH);
+    Serial.println("DANGER");
+    
+  
+  }
+  else{
+  	digitalWrite(LED,LOW);
+    digitalWrite(buzz,LOW);
+    Serial.println("SAFE ");
+      } 
+  delay(100);
+}
+	float getsensorValue(int pin){
+  	return (analogRead(pin));
+}
